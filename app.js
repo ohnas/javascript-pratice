@@ -1,5 +1,6 @@
 const notiBtn = document.getElementById("noti-button");
 const saveButton = document.getElementById("saveButton");
+const progressBar = document.getElementById("storage");
 
 function notiInterval() {
     // 1초 간격으로 console.log
@@ -35,13 +36,16 @@ function handleNotiBtn() {
 }
 
 function byteChecking() {
-    const totalByte = 5242880;
+    // const totalByte = 5242880;
+    const totalByte = 100;
     const texts = localStorage.getItem('texts')
     const encoder = new TextEncoder();
     const uint8Array = encoder.encode(texts);
     const percent = (uint8Array.byteLength / totalByte) * 100;
     console.log(`currentByte : ${uint8Array.byteLength} Byte // totalByte : ${totalByte.toLocaleString("ko-KR")} Byte`);
     console.log(`현재 사용량 : ${percent} %`)
+    progressBar.setAttribute("max", totalByte);
+    progressBar.setAttribute("value", percent);
 }
 
 function saveText(text) {
