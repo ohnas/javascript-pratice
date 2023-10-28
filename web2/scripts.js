@@ -1,6 +1,7 @@
 const inputSentence = document.getElementById("inputSentence");
 const saveButton = document.getElementById("saveButton");
 const savedTextList = document.getElementById("savedTextList");
+const clearBtn = document.getElementById("clearBtn");
 
 // 페이지 로드 시 저장된 문장 목록을 로드
 loadSavedTexts();
@@ -37,7 +38,11 @@ function displayText(text) {
     div.appendChild(btn);
     savedTextList.appendChild(div);
 }
+function clearLocalStorage() {
+    localStorage.clear();
+}
   
+clearBtn.addEventListener("click", clearLocalStorage);
 saveButton.addEventListener("click", function() {
     const text = inputSentence.value;
     if (text) {
