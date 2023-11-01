@@ -44,7 +44,7 @@ function byteChecking() {
     const percent = (uint8Array.byteLength / totalByte) * 100;
     console.log(`currentByte : ${uint8Array.byteLength} Byte // totalByte : ${totalByte.toLocaleString("ko-KR")} Byte`);
     console.log(`현재 사용량 : ${percent} %`)
-    progressBar.setAttribute("max", totalByte);
+    progressBar.setAttribute("max", totalByte); // To do list : 나중에는 체킹함수때마다 설정하는게 아니라 웹페이지 처음 로드 될때 상수값으로 설정해놓기
     progressBar.setAttribute("value", percent);
 }
 

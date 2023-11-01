@@ -1,0 +1,89 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7f7f7;
+}
+
+.container {
+    width: 350px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#inputSentence, #timePicker {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#saveButton1,
+#saveButton2 {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#saveButton1:hover,
+#saveButton2:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    margin-top: 20px;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.dayPicker {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.dayPicker label {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+.dayPicker label:hover {
+    background-color: #e1e1e1;
+}
+.dayPicker input[type="checkbox"] {
+    display: none;
+}
+.dayPicker input[type="checkbox"]:checked + label {
+    background-color: #e1e1e1;
+}
+
+#nextButton1,
+#nextButton2 {
+    width: auto;      /* 버튼의 너비를 내용에 맞게 조절합니다. */
+    padding: 5px;     /* 패딩을 줄여서 버튼의 크기를 작게 합니다. */
+    float: right;     /* 우측 정렬을 위해 float 속성을 사용합니다. */
+    background-color: #f9f9f9; 
+    border-color: rgba(0,0,0,.1);
+    border-width: 1px;
+    color: rgba(64,65,79,var(--tw-text-opacity));
+    font-size: .875rem;
+    line-height: 1.25rem;
+    border-style: solid;
+}
