@@ -39,6 +39,45 @@ function displayText(text, listId) {
     };
 }
 
+function handleNotification() {
+    const texts = JSON.parse(localStorage.getItem("texts") || '[]');
+    const times = JSON.parse(localStorage.getItem("texts2") || '[]');
+    console.log(times);
+    const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
+    const today = new Date();
+    const dayOfWeek = daysOfWeek[today.getDay()];
+    const filtedDays = times.filter((item) => item.includes(dayOfWeek))
+    console.log(filtedDays);
+    const extractTimes = filtedDays.map((item) => item.slice(-5));
+    console.log(extractTimes);
+    let filtedTimes = [];
+    extractTimes.forEach((item) => {
+        const userScheduledTime = new Date();
+        userScheduledTime.setHours(Number(item.slice(0, 2)), Number(item.slice(-2)), 0, 0);
+        if(userScheduledTime > today) {
+            let timeDiff = userScheduledTime - today;
+            filtedTimes.push(timeDiff);
+        }
+    });
+    console.log(filtedTimes);
+    const sortedTimes = filtedTimes.sort((a, b) => a - b);
+    console.log(sortedTimes);
+
+    for (let time of sortedTimes) {
+        setTimeout(function() {
+            if(Notification.permission === "granted") {
+                const notification = new Notification(texts[0]);
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission(function (permission) {
+                    if (permission === "granted") {
+                        const notification = new Notification(texts[0]);
+                    }
+                });
+            }
+        }, time);
+    }
+}
+
 document.getElementById('saveButton1').addEventListener('click', () => {
     const inputSentence = document.getElementById('inputSentence');
     const text = inputSentence.value.trim();
@@ -74,5 +113,6 @@ document.getElementById('nextButton2').addEventListener('click', () => {
 window.addEventListener('load', () => {
     loadTexts('texts', 'savedTextList');
     loadTexts('texts2', 'savedTextList2');
+    handleNotification();
 });
 
