@@ -47,7 +47,6 @@ ul {
 
 li {
     padding: 8px;
-    border-bottom: 1px solid #eee;
 }
 
 .dayPicker {
@@ -86,4 +85,18 @@ li {
     font-size: .875rem;
     line-height: 1.25rem;
     border-style: solid;
+}
+
+
+.textBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.deleteBtn {
+    border: none;
+    background-color: white;
 }

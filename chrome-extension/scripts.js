@@ -5,17 +5,17 @@ function saveText(text, key, listId) {
     localStorage.setItem(key, JSON.stringify(texts));
 
     // 리스트에 추가
-    displayText(text, listId);
+    displayText(text, key,listId);
 }
 
 function loadTexts(key, listId) {
     const texts = JSON.parse(localStorage.getItem(key) || '[]');
     texts.forEach(text => {
-        displayText(text, listId);
+        displayText(text, key, listId);
     });
 }
 
-function displayText(text, listId) {
+function displayText(text, key, listId) {
     const list = document.getElementById(listId);
     const div = document.createElement('div');
     const li = document.createElement('li');
@@ -30,9 +30,9 @@ function displayText(text, listId) {
 
     btn.onclick = function() {
         // 로컬 스토리지에서 값 삭제
-        const texts = JSON.parse(localStorage.getItem('texts')) || [];
+        const texts = JSON.parse(localStorage.getItem(key)) || [];
         const newTexts = texts.filter(t => t !== text);
-        localStorage.setItem('texts', JSON.stringify(newTexts));
+        localStorage.setItem(key, JSON.stringify(newTexts));
 
         // div 요소 삭제
         div.remove();
@@ -42,14 +42,11 @@ function displayText(text, listId) {
 function handleNotification() {
     const texts = JSON.parse(localStorage.getItem("texts") || '[]');
     const times = JSON.parse(localStorage.getItem("texts2") || '[]');
-    console.log(times);
     const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
     const today = new Date();
     const dayOfWeek = daysOfWeek[today.getDay()];
     const filtedDays = times.filter((item) => item.includes(dayOfWeek))
-    console.log(filtedDays);
     const extractTimes = filtedDays.map((item) => item.slice(-5));
-    console.log(extractTimes);
     let filtedTimes = [];
     extractTimes.forEach((item) => {
         const userScheduledTime = new Date();
@@ -59,9 +56,7 @@ function handleNotification() {
             filtedTimes.push(timeDiff);
         }
     });
-    console.log(filtedTimes);
     const sortedTimes = filtedTimes.sort((a, b) => a - b);
-    console.log(sortedTimes);
 
     // for (let time of sortedTimes) {
     //     setTimeout(function() {
