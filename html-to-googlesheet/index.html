@@ -8,12 +8,17 @@
     <title>Document</title>
 </head>
 
-<body>
-    <form method="POST"
-        action="https://script.google.com/macros/s/AKfycbw2uX_uYDBlvXRGL7h4dI4-k880-tTRKzQRYyBa8y-uFK4OBzAzlOowPD3WRxOFwkOLyQ/exec">
-        <input name="email" type="email" placeholder="Email 주소를 입력해주세요" required />
-        <button type="submit">제출</button>
-    </form>
+<body style="height: 3000px;">
+    <div id="custom-noti-form-box">
+        <div id="custom-form-text">
+            <span>제품출시 알림설정</span>
+        </div>
+        <form id="custom-form-box" method="POST"
+            action="https://script.google.com/macros/s/AKfycbw2uX_uYDBlvXRGL7h4dI4-k880-tTRKzQRYyBa8y-uFK4OBzAzlOowPD3WRxOFwkOLyQ/exec">
+            <input id="custom-form-input" name="email" type="email" placeholder="abcde@gmail.com" required />
+            <button id="custom-form-btn" type="submit">제출</button>
+        </form>
+    </div>
 
 </body>
 
