@@ -57,20 +57,22 @@ function handleNotification() {
         }
     });
     const sortedTimes = filtedTimes.sort((a, b) => a - b);
+    console.log(sortedTimes);
+    console.log(Notification.permission);
 
-    // for (let time of sortedTimes) {
-    //     setTimeout(function() {
-    //         if(Notification.permission === "granted") {
-    //             const notification = new Notification(texts[0]);
-    //         } else if (Notification.permission !== "denied") {
-    //             Notification.requestPermission(function (permission) {
-    //                 if (permission === "granted") {
-    //                     const notification = new Notification(texts[0]);
-    //                 }
-    //             });
-    //         }
-    //     }, time);
-    // }
+    for (let time of sortedTimes) {
+        setTimeout(function() {
+            if(Notification.permission === "granted") {
+                const notification = new Notification(texts[0]);
+            } else if (Notification.permission !== "denied") {
+                Notification.requestPermission(function (permission) {
+                    if (permission === "granted") {
+                        const notification = new Notification(texts[0]);
+                    }
+                });
+            }
+        }, time);
+    }
 }
 
 document.getElementById('saveButton1').addEventListener('click', () => {
