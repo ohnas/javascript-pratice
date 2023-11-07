@@ -20,7 +20,7 @@
     background-image: url(flotiong\ button1.png);
 } */
 
-#custom-form-box {
+/* #custom-form-box {
     width: 300px;
     height: 200px;
     background-image: url(flotiong\ button1.png);
@@ -54,4 +54,62 @@
     border: none;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+} */
+
+/* #custom-form-bottom {
+    width: 820px;
+    height: 345px;
+    background-image: url(bottom\ banner1.png);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+#custom-form-bottom-input {
+    text-align: center;
+    width: 180px;
+    height: 35px;
+    font-size: 18px;
+    margin-bottom: 45px;
+    margin-right: 2px;
+    margin-left: 105px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#custom-form-bottom-btn {
+    width: 70px;
+    height: 38px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #c70707;
+    margin-bottom: 44px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+} */
+
+/* #test-div {
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    margin-top: 5000px;
+    position: relative;
+}
+
+#test-div1 {
+    position: absolute;
+    top: -20px;
+    right: 0;
+} */
+
+#custom-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background-color: #c70707;
+    transition: width 0.2s;
 }

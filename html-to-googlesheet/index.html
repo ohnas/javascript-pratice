@@ -8,14 +8,40 @@
     <title>Document</title>
 </head>
 
-<body style="height: 5000px; width: 100vw;">
+<body style="height: 5000px; width: 100vw;" id="tt-body-page">
     <!-- <form id="custom-form-box" method="POST"
         action="https://script.google.com/macros/s/AKfycbw2uX_uYDBlvXRGL7h4dI4-k880-tTRKzQRYyBa8y-uFK4OBzAzlOowPD3WRxOFwkOLyQ/exec">
         <input id="custom-form-input" name="email" type="email" placeholder="Frederik@gmail.com" required />
         <button id="custom-form-btn" type="submit">제출</button>
     </form> -->
+    <!-- <form id="custom-form-bottom" method="POST"
+        action="https://script.google.com/macros/s/AKfycbw2uX_uYDBlvXRGL7h4dI4-k880-tTRKzQRYyBa8y-uFK4OBzAzlOowPD3WRxOFwkOLyQ/exec">
+        <input id="custom-form-bottom-input" name="email" type="email" placeholder="Frederik@gmail.com" required />
+        <button id="custom-form-bottom-btn" type="submit">제출</button>
+    </form> -->
+    <!-- <div id="test-div">
+        <img id="test-div1" src="top button.png" />
+    </div> -->
+    <!-- <span id="custom-progress-bar"></span> -->
     <script>
-        console.log("hello world");
+        // const topBtn = document.getElementById("test-div1");
+        // function moveTop() {
+        //     window.scrollTo(0, 0);
+        // }
+        // topBtn.addEventListener("click", moveTop);
+
+        const bodyElement = document.querySelector('body'); // body 태그를 선택합니다
+        const bodyId = bodyElement.id; // id 속성 값을 가져옵니다
+        if (bodyId === "tt-body-page") {
+            const progressSpan = document.createElement('span');
+            progressSpan.id = "custom-progress-bar";
+            bodyElement.appendChild(progressSpan);
+            window.addEventListener("scroll", function () {
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                progressSpan.style.width = progress + "%";
+            });
+        }
     </script>
 </body>
 
