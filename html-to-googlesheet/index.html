@@ -40,7 +40,47 @@
                 const totalHeight = document.body.scrollHeight - window.innerHeight;
                 const progress = (window.scrollY / totalHeight) * 100;
                 progressSpan.style.width = progress + "%";
+                // let scrollPosition = window.scrollY;
+                // if (progress.toFixed(2) > 25.80 && progress.toFixed(2) < 25.99) {
+                //     fbq('track', 'Scroll25Percent', { scroll_position: scrollPosition });
+                // } else if (progress.toFixed(2) > 50.80 && progress.toFixed(2) < 50.99) {
+                //     fbq('track', 'Scroll50Percent', { scroll_position: scrollPosition });
+                // } else if (progress.toFixed(2) > 75.80 && progress.toFixed(2) < 75.99) {
+                //     fbq('track', 'Scroll75Percent', { scroll_position: scrollPosition });
+                // } else if (progress.toFixed(2) > 90.80 && progress.toFixed(2) < 90.99) {
+                //     fbq('track', 'Scroll100Percent', { scroll_position: scrollPosition });
+                // }
             });
+            // 스크롤 이벤트를 처리하는 함수
+            // function trackScrollEvent() {
+            //     // 스크롤 위치를 가져옵니다.
+            //     var scrollPosition = window.scrollY;
+
+            //     // 화면의 전체 높이와 보이는 화면의 높이를 가져옵니다.
+            //     var windowHeight = window.innerHeight;
+            //     var documentHeight = document.documentElement.scrollHeight;
+
+            //     // 25%, 50%, 75%, 100% 위치를 계산합니다.
+            //     var quarterHeight = documentHeight / 4;
+            //     var halfHeight = documentHeight / 2;
+            //     var threeQuarterHeight = (documentHeight / 4) * 3;
+
+            //     // 스크롤 위치가 정확히 각 위치에 맞을 때만 메타 픽셀 이벤트를 보고합니다.
+            //     if (scrollPosition === 0) {
+            //         console.log(scrollPosition);
+            //     } else if (scrollPosition === quarterHeight) {
+            //         console.log(scrollPosition);
+            //     } else if (scrollPosition === halfHeight) {
+            //         console.log(scrollPosition);
+            //     } else if (scrollPosition === threeQuarterHeight) {
+            //         console.log(scrollPosition);
+            //     } else if (scrollPosition === documentHeight - windowHeight) {
+            //         console.log(scrollPosition);
+            //     }
+            // }
+
+            // // 스크롤 이벤트를 감지할 때마다 trackScrollEvent 함수를 호출합니다.
+            // window.addEventListener('scroll', trackScrollEvent);
         }
     </script>
 </body>
