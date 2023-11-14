@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
@@ -75,9 +75,9 @@ li {
 
 #nextButton1,
 #nextButton2 {
-    width: auto;      /* 버튼의 너비를 내용에 맞게 조절합니다. */
-    padding: 5px;     /* 패딩을 줄여서 버튼의 크기를 작게 합니다. */
-    float: right;     /* 우측 정렬을 위해 float 속성을 사용합니다. */
+    width: auto;
+    padding: 5px;
+    float: right;
     background-color: #f9f9f9; 
     border-color: rgba(0,0,0,.1);
     border-width: 1px;
@@ -99,4 +99,4 @@ li {
 .deleteBtn {
     border: none;
     background-color: white;
-}
+} */
