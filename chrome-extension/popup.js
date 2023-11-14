@@ -117,14 +117,19 @@ const startBtn = document.getElementById("start-btn");
 const stopBtn = document.getElementById("stop-btn");
 
 startBtn.addEventListener("click", () => {
-    chrome.notifications.create(
-        "testNoti",
+    chrome.alarms.create(
+        "testAlarm",
         {
-            type: "basic",
-            iconUrl: "hello_extensions.png",
-            title: "This is test",
-            message: "Hello",
-            silent: false
+            delayInMinutes: 1,
+            periodInMinutes: 1
         },
-    )      
+        () => {console.log("알람이 시작 되었습니다");}
+    )
+});
+
+stopBtn.addEventListener("click", () => {
+    chrome.alarms.clear(
+        "testAlarm",
+        () => {console.log("알람이 중단 되었습니다");}
+    )
 });
