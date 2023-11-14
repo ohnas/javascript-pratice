@@ -123,13 +123,11 @@ startBtn.addEventListener("click", () => {
             delayInMinutes: 1,
             periodInMinutes: 1
         },
-        () => {console.log("알람이 시작 되었습니다");}
     )
 });
 
 stopBtn.addEventListener("click", () => {
     chrome.alarms.clear(
         "testAlarm",
-        () => {console.log("알람이 중단 되었습니다");}
     )
 });

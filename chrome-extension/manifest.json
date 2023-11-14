@@ -3,13 +3,6 @@
     "name": "Hello Extensions",
     "description": "Base Level Extension",
     "version": "1.0",
-    "background": {
-        "service_worker": "background.js"
-    },
-    "permissions": [
-        "notifications",
-        "alarms"
-    ],
     "action": {
         "default_popup": "popup.html",
         "default_icon": "hello_extensions.png"
