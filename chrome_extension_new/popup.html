@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 문장 저장 웹사이트</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <button id="start-btn">Alarms Start</button>
+        <button id="stop-btn">Alarms Stop</button>
+        <div id="page1">
+            <input type="text" id="inputSentence" placeholder="문장을 입력하세요">
+            <button id="saveButton1">저장하기</button>
+            <ul id="savedTextList"></ul>
+            <button id="nextButton1">이동:시간 설정</button>
+        </div>
+
+        <div id="page2" style="display: none;">
+            <div class="dayPicker" id="dayPicker">
+                <input type="checkbox" id="monday" name="day" value="monday">
+                <label for="monday">월</label>
+                <input type="checkbox" id="tuesday" name="day" value="tuesday">
+                <label for="tuesday">화</label>
+                <input type="checkbox" id="wednesday" name="day" value="wednesday">
+                <label for="wednesday">수</label>
+                <input type="checkbox" id="thursday" name="day" value="thursday">
+                <label for="thursday">목</label>
+                <input type="checkbox" id="friday" name="day" value="friday">
+                <label for="friday">금</label>
+                <input type="checkbox" id="saturday" name="day" value="saturday">
+                <label for="saturday">토</label>
+                <input type="checkbox" id="sunday" name="day" value="sunday">
+                <label for="sunday">일</label>
+            </div>
+            <input type="time" id="timePicker">
+            <button id="saveButton2">저장하기</button>
+            <ul id="savedTextList2"></ul>
+            <button id="nextButton2">이동:문장 입력</button>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
