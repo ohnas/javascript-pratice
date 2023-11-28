@@ -15,14 +15,6 @@ body {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-#start-btn {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #54a0ff;
-    color: #fff;
-    border: none;
-    cursor: pointer; 
-}
 #stop-btn {
     padding: 10px;
     margin-bottom: 10px;

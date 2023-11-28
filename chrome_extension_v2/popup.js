@@ -1,4 +1,3 @@
-const startBtn = document.getElementById("start-btn");
 const stopBtn = document.getElementById("stop-btn");
 
 //api를 호출하고 응답을 받으면 각자 선언된 콜백 함수를 호출한다. 
@@ -16,6 +15,7 @@ function saveText(text, key, listId) {
         saveObject[key] = texts;
         chrome.storage.local.set(saveObject, function() {
             displayText(text, key, listId);
+            sendMessageToBackground();
         });
     });
 }
@@ -77,38 +77,7 @@ function displayText(text, key, listId) {
     listElement.appendChild(listItem);
 }
 
-document.getElementById('saveButton1').addEventListener('click', () => {
-    const inputSentence = document.getElementById('inputSentence');
-    const text = inputSentence.value.trim();
-    if (text) {
-        saveText(text, 'texts', 'savedTextList');
-        inputSentence.value = '';  // 입력창 초기화
-    }
-});
-
-document.getElementById('saveButton2').addEventListener('click', () => {
-    const dayPicker = document.getElementById('dayPicker');
-    const timePicker = document.getElementById('timePicker');
-    const days = Array.from(dayPicker.querySelectorAll('input:checked'))
-                      .map(input => input.nextElementSibling.textContent);
-    const time = timePicker.value.trim();
-    if (days.length && time) {
-        const text = `${days.join(', ')} ${time}`;
-        saveText(text, 'texts2', 'savedTextList2');
-    }
-});
-
-document.getElementById('nextButton1').addEventListener('click', () => {
-    document.getElementById('page1').style.display = 'none';
-    document.getElementById('page2').style.display = 'block';
-});
-
-document.getElementById('nextButton2').addEventListener('click', () => {
-    document.getElementById('page1').style.display = 'block';
-    document.getElementById('page2').style.display = 'none';
-});
-
-startBtn.addEventListener("click", () => {
+function sendMessageToBackground() {
     chrome.storage.local.get(["texts", "texts2"], function(result) {
         let texts, times;
         if (result["texts"]) {
@@ -141,7 +110,38 @@ startBtn.addEventListener("click", () => {
             notiTexts : texts,
             alarmTimes : sortedTimes
         });
-    });
+    });  
+}
+
+document.getElementById('saveButton1').addEventListener('click', () => {
+    const inputSentence = document.getElementById('inputSentence');
+    const text = inputSentence.value.trim();
+    if (text) {
+        saveText(text, 'texts', 'savedTextList');
+        inputSentence.value = '';  // 입력창 초기화
+    }
+});
+
+document.getElementById('saveButton2').addEventListener('click', () => {
+    const dayPicker = document.getElementById('dayPicker');
+    const timePicker = document.getElementById('timePicker');
+    const days = Array.from(dayPicker.querySelectorAll('input:checked'))
+                      .map(input => input.nextElementSibling.textContent);
+    const time = timePicker.value.trim();
+    if (days.length && time) {
+        const text = `${days.join(', ')} ${time}`;
+        saveText(text, 'texts2', 'savedTextList2');
+    }
+});
+
+document.getElementById('nextButton1').addEventListener('click', () => {
+    document.getElementById('page1').style.display = 'none';
+    document.getElementById('page2').style.display = 'block';
+});
+
+document.getElementById('nextButton2').addEventListener('click', () => {
+    document.getElementById('page1').style.display = 'block';
+    document.getElementById('page2').style.display = 'none';
 });
 
 stopBtn.addEventListener("click", () => {
